@@ -9,7 +9,7 @@
     <!-- Google Fonts: Space Grotesk for headings, Plus Jakarta Sans for body text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -63,7 +63,7 @@
         <span class="viewfinder-dot"></span>
     </div>
 
-    <!-- Glowing Background Bubbles -->
+    <!-- Glowing Background Bubbles & SDG Visual Elements -->
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[130px]"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-accent/10 blur-[130px]"></div>
@@ -116,20 +116,39 @@
         </header>
 
         <main>
-            <!-- Hero Section (Compact Padding) -->
+            <!-- Hero Section (Centered on Mobile with SDG Representation Elements) -->
             <section class="hero-section relative flex items-center py-10 lg:py-14 px-6 sm:px-8 overflow-hidden" id="home">
                 <div class="hero-background-wrapper absolute inset-0 z-0 opacity-40">
                     <div class="hero-bg-overlay absolute inset-0 bg-gradient-to-b from-darkBg/95 via-darkBg/90 to-darkBg"></div>
+                    <!-- Floating SDG background element circles -->
+                    <div class="absolute top-12 left-10 w-24 h-24 rounded-full border border-cyan-400/20 animate-pulse pointer-events-none hidden sm:block"></div>
+                    <div class="absolute bottom-16 left-1/3 w-32 h-32 rounded-full border border-indigo-500/20 animate-pulse pointer-events-none hidden sm:block"></div>
                     <div class="camera-grid absolute inset-0"></div>
                 </div>
                 
                 <div class="max-w-[1200px] mx-auto w-full relative z-10">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
                         
-                        <!-- Left Column: Title & Info Details -->
-                        <div class="lg:col-span-7 flex flex-col justify-start pt-2">
-                            <h1 class="hero-title animate-on-scroll font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
-                                Frames 360:<br>
+                        <!-- Left Column: Title & Info Details (Centered on mobile screen!) -->
+                        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left pt-2">
+                            
+                            <!-- SDG Theme Badge Tag -->
+                            <div class="animate-on-scroll inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/25 text-cyan-400 text-xs font-semibold mb-4 w-fit">
+                                <i class="fa-solid fa-earth-americas text-cyan-400 animate-spin-slow"></i>
+                                <span>UN Sustainable Development Goals (SDGs) Contest</span>
+                            </div>
+
+                            <!-- Styled Title (Futuristic Typography + SDG Representation Elements) -->
+                            <h1 class="hero-title animate-on-scroll font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-[1.15]">
+                                <span class="inline-flex items-center gap-2 flex-wrap justify-center lg:justify-start">
+                                    Frames 360:
+                                    <!-- SDG Color Wheel Circle Badge -->
+                                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 via-green-400 to-cyan-400 p-0.5 shadow-lg shadow-cyan-400/30">
+                                        <span class="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
+                                            <i class="fa-solid fa-leaf text-cyan-400 text-xs"></i>
+                                        </span>
+                                    </span>
+                                </span><br>
                                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-primary-light to-indigo-400">Design for Future</span>
                             </h1>
                             
@@ -138,24 +157,24 @@
                             </p>
                             
                             <!-- Event Info Badges -->
-                            <div class="hero-info-grid animate-on-scroll grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-3 rounded-xl backdrop-blur-sm transition-all">
+                            <div class="hero-info-grid animate-on-scroll grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 w-full max-w-xl">
+                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-3 rounded-xl backdrop-blur-sm transition-all justify-center sm:justify-start">
                                     <i class="fa-regular fa-calendar-days text-cyan-400 text-lg shrink-0"></i>
-                                    <div>
+                                    <div class="text-left">
                                         <div class="text-[9px] text-slate-400 uppercase tracking-widest">Event Date</div>
                                         <div class="text-xs font-bold text-white">12 August 2026</div>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-4 rounded-xl backdrop-blur-sm transition-all">
+                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-3 rounded-xl backdrop-blur-sm transition-all justify-center sm:justify-start">
                                     <i class="fa-regular fa-clock text-cyan-400 text-lg shrink-0"></i>
-                                    <div>
+                                    <div class="text-left">
                                         <div class="text-[9px] text-slate-400 uppercase tracking-widest">Register Deadline</div>
                                         <div class="text-xs font-bold text-white">10 August 2026</div>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-4 rounded-xl backdrop-blur-sm transition-all">
+                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-3 rounded-xl backdrop-blur-sm transition-all justify-center sm:justify-start">
                                     <i class="fa-solid fa-graduation-cap text-cyan-400 text-lg shrink-0"></i>
-                                    <div>
+                                    <div class="text-left">
                                         <div class="text-[9px] text-slate-400 uppercase tracking-widest">Open To</div>
                                         <div class="text-xs font-bold text-white">Students</div>
                                     </div>
@@ -163,7 +182,7 @@
                             </div>
 
                             <!-- Actions -->
-                            <div class="hero-actions animate-on-scroll flex flex-wrap gap-4 items-center">
+                            <div class="hero-actions animate-on-scroll flex flex-wrap gap-4 items-center justify-center lg:justify-start w-full">
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSczk5gMOsyEphysyXfm6x3WFBnVZ-bRlZw93mQeJrzqx6oToQ/viewform?usp=publish-editor" target="_blank" class="group relative inline-flex items-center gap-2 px-7 py-3.5 font-bold text-slate-950 text-base bg-gradient-to-r from-cyan-400 via-indigo-400 to-cyan-400 btn-animated-gradient rounded-full overflow-hidden shadow-lg shadow-cyan-400/25 transition-all hover:scale-105 active:scale-95 cursor-pointer text-center">
                                     <span>Register Now</span>
                                     <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -176,7 +195,7 @@
                         </div>
 
                         <!-- Right Column: Viewfinder Image + Countdown Timer underneath -->
-                        <div class="lg:col-span-5 flex flex-col items-center justify-start gap-6 relative animate-on-scroll">
+                        <div class="lg:col-span-5 flex flex-col items-center justify-start gap-6 relative animate-on-scroll w-full">
                             
                             <!-- Camera Viewfinder Visual Image -->
                             <div class="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 hero-viewfinder-float">
@@ -210,7 +229,7 @@
                             </div>
 
                             <!-- Countdown Timer Box -->
-                            <div class="countdown-container w-full p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md shadow-xl relative overflow-hidden text-center">
+                            <div class="countdown-container w-full max-w-xl p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md shadow-xl relative overflow-hidden text-center">
                                 <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 opacity-30 pointer-events-none"></div>
                                 <span class="block text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Time Remaining Until Submission Portal Closes:</span>
                                 <div id="countdown" class="flex justify-center items-center gap-3 sm:gap-5">
@@ -242,7 +261,7 @@
                 </div>
             </section>
 
-            <!-- Banners Section (Compact vertical spacing) -->
+            <!-- Banners Section -->
             <section class="banners-section py-4 px-6 sm:px-8 max-w-[1200px] mx-auto space-y-4 animate-on-scroll">
                 <!-- Foot Banner 2 -->
                 <div class="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-slate-950/60 p-2 sm:p-3 backdrop-blur-md hover:border-cyan-400/30 transition-all">
@@ -254,7 +273,7 @@
                 </div>
             </section>
 
-            <!-- About the Event Section (Compact py-12 sm:py-16) -->
+            <!-- About the Event Section -->
             <section id="about" class="about-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 bg-slate-950/20">
                 <div class="max-w-[1200px] mx-auto">
                     <div class="section-header animate-on-scroll mb-8 sm:mb-10 text-center max-w-3xl mx-auto">
@@ -288,14 +307,14 @@
                 </div>
             </section>
 
-            <!-- Theme & SDG Poster Section (Compact py-12 sm:py-16) -->
+            <!-- Theme & SDG Poster Section -->
             <section id="theme" class="theme-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 relative">
                 <div class="max-w-[1200px] mx-auto">
                     <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
                         <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Themes</span>
                         <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Design for Future</h2>
                         <p class="section-subtitle text-slate-400 text-xs sm:text-sm mt-2 max-w-xl mx-auto">
-                            Choose any <strong>ONE</strong> Sustainable Development Goal (SDG) and represent its significance through:
+                            Choose any Sustainable Development Goal (SDG) and represent its significance through:
                         </p>
                         <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
                     </div>
@@ -346,7 +365,7 @@
                 </div>
             </section>
 
-            <!-- Event Timeline (Compact py-12 sm:py-16) -->
+            <!-- Event Timeline -->
             <section id="timeline" class="timeline-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 bg-slate-950/20">
                 <div class="max-w-[1200px] mx-auto">
                     <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
@@ -413,7 +432,7 @@
                 </div>
             </section>
 
-            <!-- How It Works Section (Compact py-12 sm:py-16) -->
+            <!-- How It Works Section -->
             <section id="how-it-works" class="how-it-works-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5">
                 <div class="max-w-[1200px] mx-auto">
                     <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
@@ -456,7 +475,7 @@
                 </div>
             </section>
 
-            <!-- Awards Section (Compact py-12 sm:py-16) -->
+            <!-- Awards Section -->
             <section id="awards" class="awards-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 bg-slate-950/20">
                 <div class="max-w-[1200px] mx-auto">
                     <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
@@ -498,7 +517,7 @@
                 </div>
             </section>
 
-            <!-- Benefits Section (Compact py-12 sm:py-16) -->
+            <!-- Benefits Section -->
             <section id="benefits" class="benefits-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5">
                 <div class="max-w-[1200px] mx-auto">
                     <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
@@ -537,7 +556,7 @@
                 </div>
             </section>
 
-            <!-- Rules & Eligibility (Compact py-12 sm:py-16) -->
+            <!-- Rules & Eligibility (Updated Rule 2 to SDG Representation) -->
             <section id="guidelines" class="guidelines-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 bg-slate-950/20">
                 <div class="max-w-[1200px] mx-auto">
                     <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
@@ -559,7 +578,7 @@
                                 </li>
                                 <li class="flex gap-3 items-start">
                                     <span class="rule-num shrink-0 w-5 h-5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-[11px] font-bold text-cyan-400 flex items-center justify-center mt-0.5">2</span>
-                                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed"><strong class="text-white">Single SDG Target:</strong> Choose exactly one of the 17 UN Sustainable Development Goals as your project theme.</p>
+                                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed"><strong class="text-white">SDG Representation:</strong> Visual entries must represent the UN Sustainable Development Goals (SDGs).</p>
                                 </li>
                                 <li class="flex gap-3 items-start">
                                     <span class="rule-num shrink-0 w-5 h-5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-[11px] font-bold text-cyan-400 flex items-center justify-center mt-0.5">3</span>
@@ -589,7 +608,7 @@
                 </div>
             </section>
 
-            <!-- Organizing Committee (Compact py-12 sm:py-16) -->
+            <!-- Organizing Committee -->
             <section id="committee" class="committee-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5">
                 <div class="max-w-[1200px] mx-auto">
                     <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
@@ -655,7 +674,7 @@
                 </div>
             </section>
 
-            <!-- Final Call to Action (Compact py-12 sm:py-16) -->
+            <!-- Final Call to Action -->
             <section class="cta-section py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 text-center relative overflow-hidden bg-gradient-to-b from-darkBg to-slate-950">
                 <div class="cta-glow-bg absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-cyan-500/10 blur-[90px] pointer-events-none"></div>
                 <div class="max-w-[1200px] mx-auto relative z-10">
@@ -686,7 +705,7 @@
             </section>
         </main>
 
-        <!-- Footer (Compact py-8) -->
+        <!-- Footer (Removed location line) -->
         <footer class="footer border-t border-white/5 py-8 bg-slate-950">
             <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 pb-6">
                 <div class="footer-brand">
@@ -713,7 +732,6 @@
                     <h4 class="text-xs uppercase tracking-widest text-white font-bold mb-3">Contact</h4>
                     <p class="contact-line text-xs text-slate-400 flex items-center gap-2"><i class="fa-solid fa-phone text-cyan-400"></i> Dr. N. A. S. Vinoth: <a href="tel:9600788043" class="text-white hover:text-cyan-400">96007 88043</a></p>
                     <p class="contact-line text-xs text-slate-400 flex items-center gap-2"><i class="fa-solid fa-phone text-cyan-400"></i> Dr. Delsi Robinsha S: <a href="tel:9500822023" class="text-white hover:text-cyan-400">95008 22023</a></p>
-                    <p class="contact-line text-xs text-slate-400 flex items-center gap-2 pt-1"><i class="fa-solid fa-location-dot text-cyan-400"></i> Department of Computing Technologies, Tech Park, SRMIST</p>
                 </div>
             </div>
             
