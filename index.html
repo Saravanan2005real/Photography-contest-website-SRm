@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frames 360: Design for Future | Photography & Videography Contest</title>
+    <meta name="description" content="Showcase the United Nations Sustainable Development Goals (SDGs) through visual media. Register for the Frames 360 photography and videography competition. Event date: 12 August 2026.">
+    
+    <!-- Google Fonts: Space Grotesk for headings, Plus Jakarta Sans for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#6366f1', // Indigo
+                            light: '#818cf8',
+                            dark: '#4f46e5',
+                            glow: 'rgba(99, 102, 241, 0.15)',
+                        },
+                        accent: {
+                            DEFAULT: '#06b6d4', // Cyan
+                            light: '#22d3ee',
+                            dark: '#0891b2',
+                            glow: 'rgba(6, 182, 212, 0.15)',
+                        },
+                        darkBg: {
+                            DEFAULT: '#030712', // slate-950
+                            secondary: '#0b0f19',
+                            card: 'rgba(17, 24, 39, 0.7)',
+                            border: 'rgba(255, 255, 255, 0.08)',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom native CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkBg text-slate-100 font-body overflow-x-hidden relative">
+    
+    <!-- Custom Cursor Viewfinder -->
+    <div id="cursor-viewfinder" class="cursor-viewfinder">
+        <span class="viewfinder-corner tl"></span>
+        <span class="viewfinder-corner tr"></span>
+        <span class="viewfinder-corner bl"></span>
+        <span class="viewfinder-corner br"></span>
+        <span class="viewfinder-dot"></span>
+    </div>
+
+    <!-- Glowing Background Bubbles -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[130px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-accent/10 blur-[130px]"></div>
+        <div class="absolute top-[35%] left-[55%] w-[35%] h-[35%] rounded-full bg-indigo-500/5 blur-[120px]"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDI1Ii8+Cjwvc3ZnPg==')] opacity-40"></div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Top Banner Header (Compact & sleek size) -->
+        <div class="w-full bg-slate-950/90 backdrop-blur-md border-b border-white/5 py-1.5 px-4">
+            <div class="max-w-[1200px] mx-auto flex justify-center items-center">
+                <img src="assets/top_banner.png" alt="Frames 360 Top Banner" class="h-10 sm:h-14 md:h-16 w-auto object-contain rounded hover:scale-[1.01] transition-transform duration-300">
+            </div>
+        </div>
+
+        <!-- Floating Navigation Header (With Mobile Hamburger Menu) -->
+        <header class="header relative">
+            <div class="max-w-[1200px] mx-auto px-6 header-container">
+                <a href="#" class="logo flex items-center gap-3">
+                    <i class="fa-solid fa-camera-retro logo-icon text-2xl text-cyan-400"></i>
+                    <span class="logo-text font-heading font-extrabold text-xl tracking-tight text-white">FRAMES<span class="text-cyan-400">360</span></span>
+                </a>
+                
+                <!-- Burger Button for Mobile Screens -->
+                <button class="mobile-nav-toggle flex md:hidden" aria-label="Toggle menu" id="mobile-nav-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+                <nav class="nav" id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#theme" class="nav-link">Theme</a></li>
+                        <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                        <li><a href="#how-it-works" class="nav-link">How it Works</a></li>
+                        <li><a href="#awards" class="nav-link">Awards</a></li>
+                        <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                        <li><a href="#guidelines" class="nav-link">Guidelines</a></li>
+                        <li><a href="#committee" class="nav-link">Committee</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-cta-wrapper hidden md:block">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczk5gMOsyEphysyXfm6x3WFBnVZ-bRlZw93mQeJrzqx6oToQ/viewform?usp=publish-editor" target="_blank" class="btn btn-primary bg-gradient-to-r from-primary to-accent text-slate-950 font-bold px-6 py-2.5 rounded-full shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all inline-block text-center cursor-pointer">
+                        Register Now
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section (Compact Padding) -->
+            <section class="hero-section relative flex items-center py-10 lg:py-14 px-6 sm:px-8 overflow-hidden" id="home">
+                <div class="hero-background-wrapper absolute inset-0 z-0 opacity-40">
+                    <div class="hero-bg-overlay absolute inset-0 bg-gradient-to-b from-darkBg/95 via-darkBg/90 to-darkBg"></div>
+                    <div class="camera-grid absolute inset-0"></div>
+                </div>
+                
+                <div class="max-w-[1200px] mx-auto w-full relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                        
+                        <!-- Left Column: Title & Info Details -->
+                        <div class="lg:col-span-7 flex flex-col justify-start pt-2">
+                            <h1 class="hero-title animate-on-scroll font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
+                                Frames 360:<br>
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-primary-light to-indigo-400">Design for Future</span>
+                            </h1>
+                            
+                            <p class="hero-description animate-on-scroll text-sm md:text-base text-slate-300 mb-6 max-w-xl leading-relaxed">
+                                Turn your creativity into impact. Use your camera to showcase the United Nations Sustainable Development Goals (SDGs) through photography and videography.
+                            </p>
+                            
+                            <!-- Event Info Badges -->
+                            <div class="hero-info-grid animate-on-scroll grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-3 rounded-xl backdrop-blur-sm transition-all">
+                                    <i class="fa-regular fa-calendar-days text-cyan-400 text-lg shrink-0"></i>
+                                    <div>
+                                        <div class="text-[9px] text-slate-400 uppercase tracking-widest">Event Date</div>
+                                        <div class="text-xs font-bold text-white">12 August 2026</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-4 rounded-xl backdrop-blur-sm transition-all">
+                                    <i class="fa-regular fa-clock text-cyan-400 text-lg shrink-0"></i>
+                                    <div>
+                                        <div class="text-[9px] text-slate-400 uppercase tracking-widest">Register Deadline</div>
+                                        <div class="text-xs font-bold text-white">10 August 2026</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 text-slate-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 p-4 rounded-xl backdrop-blur-sm transition-all">
+                                    <i class="fa-solid fa-graduation-cap text-cyan-400 text-lg shrink-0"></i>
+                                    <div>
+                                        <div class="text-[9px] text-slate-400 uppercase tracking-widest">Open To</div>
+                                        <div class="text-xs font-bold text-white">Students</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="hero-actions animate-on-scroll flex flex-wrap gap-4 items-center">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSczk5gMOsyEphysyXfm6x3WFBnVZ-bRlZw93mQeJrzqx6oToQ/viewform?usp=publish-editor" target="_blank" class="group relative inline-flex items-center gap-2 px-7 py-3.5 font-bold text-slate-950 text-base bg-gradient-to-r from-cyan-400 via-indigo-400 to-cyan-400 btn-animated-gradient rounded-full overflow-hidden shadow-lg shadow-cyan-400/25 transition-all hover:scale-105 active:scale-95 cursor-pointer text-center">
+                                    <span>Register Now</span>
+                                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                                <a href="#about" class="inline-flex items-center gap-2 px-5 py-3.5 font-semibold text-white text-sm bg-white/5 border border-white/10 hover:bg-white/10 rounded-full hover:border-cyan-400 transition-all">
+                                    <span>Explore Event Details</span>
+                                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Viewfinder Image + Countdown Timer underneath -->
+                        <div class="lg:col-span-5 flex flex-col items-center justify-start gap-6 relative animate-on-scroll">
+                            
+                            <!-- Camera Viewfinder Visual Image -->
+                            <div class="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 hero-viewfinder-float">
+                                <!-- Background Glow behind visual -->
+                                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400/20 to-primary/20 blur-2xl animate-pulse"></div>
+                                
+                                <!-- Camera Lens Border Frame -->
+                                <div class="absolute inset-0 rounded-full border-4 border-dashed border-white/10 scale-105 animate-[spin_120s_linear_infinite] pointer-events-none"></div>
+                                <div class="absolute inset-0 rounded-full border border-cyan-400/20 scale-[1.02] pointer-events-none"></div>
+                                
+                                <!-- Viewfinder brackets -->
+                                <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-cyan-400"></div>
+                                <div class="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-cyan-400"></div>
+                                <div class="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-cyan-400"></div>
+                                <div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-cyan-400"></div>
+
+                                <!-- Image Crop Wrapper -->
+                                <div class="w-full h-full rounded-full overflow-hidden border-2 border-white/10 shadow-2xl relative group cursor-pointer">
+                                    <img src="assets/about_sustainability_2.png" alt="Sustainability Creative Visual" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors duration-300"></div>
+                                    
+                                    <!-- Viewfinder HUD overlays -->
+                                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-950/70 border border-white/10 px-3 py-1 rounded-full text-[9px] tracking-wider text-slate-300 font-mono flex items-center gap-2 backdrop-blur-sm pointer-events-none">
+                                        <span>ISO 100</span>
+                                        <span class="w-1 h-1 rounded-full bg-cyan-400"></span>
+                                        <span>f/2.8</span>
+                                        <span class="w-1 h-1 rounded-full bg-cyan-400"></span>
+                                        <span>1/250s</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Countdown Timer Box -->
+                            <div class="countdown-container w-full p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md shadow-xl relative overflow-hidden text-center">
+                                <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 opacity-30 pointer-events-none"></div>
+                                <span class="block text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Time Remaining Until Submission Portal Closes:</span>
+                                <div id="countdown" class="flex justify-center items-center gap-3 sm:gap-5">
+                                    <div class="text-center">
+                                        <span id="days" class="block text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tabular-nums">00</span>
+                                        <span class="text-[9px] uppercase tracking-wider text-cyan-400 font-semibold block">Days</span>
+                                    </div>
+                                    <span class="text-base sm:text-lg font-bold text-slate-600 animate-pulse">:</span>
+                                    <div class="text-center">
+                                        <span id="hours" class="block text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tabular-nums">00</span>
+                                        <span class="text-[9px] uppercase tracking-wider text-cyan-400 font-semibold block">Hours</span>
+                                    </div>
+                                    <span class="text-base sm:text-lg font-bold text-slate-600 animate-pulse">:</span>
+                                    <div class="text-center">
+                                        <span id="minutes" class="block text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tabular-nums">00</span>
+                                        <span class="text-[9px] uppercase tracking-wider text-cyan-400 font-semibold block">Mins</span>
+                                    </div>
+                                    <span class="text-base sm:text-lg font-bold text-slate-600 animate-pulse">:</span>
+                                    <div class="text-center">
+                                        <span id="seconds" class="block text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-indigo-400 tabular-nums animate-pulse">00</span>
+                                        <span class="text-[9px] uppercase tracking-wider text-cyan-400 font-semibold block">Secs</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Banners Section (Compact vertical spacing) -->
+            <section class="banners-section py-4 px-6 sm:px-8 max-w-[1200px] mx-auto space-y-4 animate-on-scroll">
+                <!-- Foot Banner 2 -->
+                <div class="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-slate-950/60 p-2 sm:p-3 backdrop-blur-md hover:border-cyan-400/30 transition-all">
+                    <img src="assets/foot_banner_2.png" alt="Event Announcement Banner 2" class="w-full h-auto object-contain rounded-xl shadow-md">
+                </div>
+                <!-- Foot Banner 1 -->
+                <div class="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-slate-950/60 p-2 sm:p-3 backdrop-blur-md hover:border-cyan-400/30 transition-all">
+                    <img src="assets/foot_banner_1.png" alt="Event Announcement Banner 1" class="w-full h-auto object-contain rounded-xl shadow-md">
+                </div>
+            </section>
+
+            <!-- About the Event Section (Compact py-12 sm:py-16) -->
+            <section id="about" class="about-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 bg-slate-950/20">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="section-header animate-on-scroll mb-8 sm:mb-10 text-center max-w-3xl mx-auto">
+                        <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Context</span>
+                        <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">About Frames 360</h2>
+                        <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
+                    </div>
+                    
+                    <div class="about-grid grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                        <!-- Two Sustainability Images Side-by-Side -->
+                        <div class="about-image-container lg:col-span-6 animate-on-scroll grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="glass-image-wrapper relative rounded-xl overflow-hidden border border-white/10 shadow-xl">
+                                <img src="assets/about_showcase.png" alt="Photography Visual Storytelling - Sustainability 1" class="w-full h-44 sm:h-56 object-cover transition-transform duration-700 hover:scale-105">
+                                <div class="lens-overlay"></div>
+                            </div>
+                            <div class="glass-image-wrapper relative rounded-xl overflow-hidden border border-white/10 shadow-xl">
+                                <img src="assets/about_sustainability_2.png" alt="Photography Visual Storytelling - Sustainability 2" class="w-full h-44 sm:h-56 object-cover transition-transform duration-700 hover:scale-105">
+                                <div class="lens-overlay"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="about-text-content lg:col-span-6 animate-on-scroll space-y-4">
+                            <p class="lead-text text-lg font-medium text-slate-200 leading-relaxed">
+                                Frames 360: Design for Future is a photography and videography competition that encourages students to communicate meaningful social and environmental stories through visual media.
+                            </p>
+                            <p class="body-text text-slate-400 text-sm leading-relaxed">
+                                Participants are invited to create original photographs or videos inspired by any one of the 17 United Nations Sustainable Development Goals (SDGs). The objective is to raise awareness, inspire action, and present innovative perspectives on building a sustainable future.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theme & SDG Poster Section (Compact py-12 sm:py-16) -->
+            <section id="theme" class="theme-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 relative">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
+                        <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Themes</span>
+                        <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Design for Future</h2>
+                        <p class="section-subtitle text-slate-400 text-xs sm:text-sm mt-2 max-w-xl mx-auto">
+                            Choose any <strong>ONE</strong> Sustainable Development Goal (SDG) and represent its significance through:
+                        </p>
+                        <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <!-- Category grids -->
+                    <div class="category-showcase-grid grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 max-w-4xl mx-auto">
+                        <!-- Photography Card -->
+                        <div class="category-card relative p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-400/50 hover:bg-white/[0.05] transition-all duration-300 group shadow-xl">
+                            <div class="card-icon-bg w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:bg-cyan-400 group-hover:text-slate-950 transition-all duration-300">
+                                <i class="fa-solid fa-camera"></i>
+                            </div>
+                            <h3 class="category-title text-xl font-bold text-white mb-2">Photography</h3>
+                            <p class="category-desc text-slate-400 text-xs mb-4 leading-relaxed">Capture a single, powerful frame that tells an evocative story, freezes a crucial moment of change, or highlights local sustainability issues and solutions.</p>
+                            <ul class="category-bullets space-y-2">
+                                <li class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> High Resolution Images</li>
+                                <li class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Single Frame storytelling</li>
+                                <li class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Concept and clarity focus</li>
+                            </ul>
+                        </div>
+
+                        <!-- Videography Card -->
+                        <div class="category-card relative p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-indigo-400/50 hover:bg-white/[0.05] transition-all duration-300 group shadow-xl">
+                            <div class="card-icon-bg w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:bg-indigo-400 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+                            <h3 class="category-title text-xl font-bold text-white mb-2">Videography</h3>
+                            <p class="category-desc text-slate-400 text-xs mb-4 leading-relaxed">Produce a short, high-impact video, reel, or documentary presenting a message, solution, or critical narrative around your chosen goal.</p>
+                            <ul class="category-bullets space-y-2">
+                                <li class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Dynamic storytelling edits</li>
+                                <li class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> High-quality audio and visuals</li>
+                                <li class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Clear narrative structure</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Modern SDG Poster Component -->
+                    <div class="sdg-poster-section animate-on-scroll mb-6 max-w-4xl mx-auto">
+                        <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/30 p-3 sm:p-5 backdrop-blur-sm shadow-xl flex flex-col items-center">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 text-[11px] font-semibold mb-4">
+                                <i class="fa-solid fa-earth-asia"></i>
+                                <span>UN Sustainable Development Goals Reference Poster</span>
+                            </div>
+                            <div class="w-full overflow-hidden rounded-xl border border-white/5 hover:scale-[1.01] transition-transform duration-500">
+                                <img src="assets/sdg_goal.png" alt="17 Sustainable Development Goals Poster" class="w-full h-auto object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Timeline (Compact py-12 sm:py-16) -->
+            <section id="timeline" class="timeline-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 bg-slate-950/20">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
+                        <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Timeline</span>
+                        <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Event Timeline</h2>
+                        <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <div class="timeline-wrapper max-w-4xl mx-auto relative py-6">
+                        <div class="timeline-line absolute left-1/2 top-0 w-0.5 h-full bg-white/5 -translate-x-1/2">
+                            <div class="timeline-progress absolute left-0 top-0 w-full h-0 bg-gradient-to-b from-cyan-400 to-indigo-500 shadow-[0_0_10px_#06b6d4] transition-all duration-300" id="timeline-progress-bar"></div>
+                        </div>
+                        
+                        <div class="timeline-items flex flex-col gap-8">
+                            <!-- Step 1 -->
+                            <div class="timeline-item active relative grid grid-cols-1 md:grid-cols-2">
+                                <div class="timeline-marker absolute left-1/2 top-4 w-9 h-9 rounded-full bg-slate-900 border-2 border-white/10 -translate-x-1/2 flex items-center justify-center text-xs text-slate-500 transition-all shadow-[0_0_0_6px_#030712] z-10">
+                                    <i class="fa-solid fa-door-open"></i>
+                                </div>
+                                <div class="timeline-content w-[90%] md:w-[85%] bg-white/[0.02] border border-white/5 rounded-2xl p-5 sm:p-6 hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all justify-self-end md:text-right md:justify-self-start">
+                                    <span class="timeline-date block text-[11px] uppercase tracking-wider text-cyan-400 font-bold mb-1">Open Now</span>
+                                    <h3 class="timeline-item-title text-base font-bold text-white mb-1">Registration Opens</h3>
+                                    <p class="timeline-item-desc text-slate-400 text-xs leading-relaxed">Secure your spot in the visual arts contest. Get your entry concept ready.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="timeline-item relative grid grid-cols-1 md:grid-cols-2">
+                                <div class="timeline-marker absolute left-1/2 top-4 w-9 h-9 rounded-full bg-slate-900 border-2 border-white/10 -translate-x-1/2 flex items-center justify-center text-xs text-slate-500 transition-all shadow-[0_0_0_6px_#030712] z-10">
+                                    <i class="fa-solid fa-hourglass-end"></i>
+                                </div>
+                                <div class="timeline-content w-[90%] md:w-[85%] bg-white/[0.02] border border-white/5 rounded-2xl p-5 sm:p-6 hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all justify-self-end md:col-start-2 md:justify-self-start">
+                                    <span class="timeline-date block text-[11px] uppercase tracking-wider text-cyan-400 font-bold mb-1">10 August 2026</span>
+                                    <h3 class="timeline-item-title text-base font-bold text-white mb-1">Submission Deadline</h3>
+                                    <p class="timeline-item-desc text-slate-400 text-xs leading-relaxed">Upload your photography or videography file via the portal before this date.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="timeline-item relative grid grid-cols-1 md:grid-cols-2">
+                                <div class="timeline-marker absolute left-1/2 top-4 w-9 h-9 rounded-full bg-slate-900 border-2 border-white/10 -translate-x-1/2 flex items-center justify-center text-xs text-slate-500 transition-all shadow-[0_0_0_6px_#030712] z-10">
+                                    <i class="fa-solid fa-list-check"></i>
+                                </div>
+                                <div class="timeline-content w-[90%] md:w-[85%] bg-white/[0.02] border border-white/5 rounded-2xl p-5 sm:p-6 hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all justify-self-end md:text-right md:justify-self-start">
+                                    <span class="timeline-date block text-[11px] uppercase tracking-wider text-cyan-400 font-bold mb-1">Before Event</span>
+                                    <h3 class="timeline-item-title text-base font-bold text-white mb-1">Shortlisting Entries</h3>
+                                    <p class="timeline-item-desc text-slate-400 text-xs leading-relaxed">Our expert panel reviews submissions and shortlists teams for live presentations.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="timeline-item final-step relative grid grid-cols-1 md:grid-cols-2">
+                                <div class="timeline-marker absolute left-1/2 top-4 w-9 h-9 rounded-full bg-slate-900 border-2 border-white/10 -translate-x-1/2 flex items-center justify-center text-xs text-slate-500 transition-all shadow-[0_0_0_6px_#030712] z-10">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </div>
+                                <div class="timeline-content w-[90%] md:w-[85%] bg-white/[0.02] border border-white/5 rounded-2xl p-5 sm:p-6 hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all justify-self-end md:col-start-2 md:justify-self-start">
+                                    <span class="timeline-date block text-[11px] uppercase tracking-wider text-cyan-400 font-bold mb-1">12 August 2026</span>
+                                    <h3 class="timeline-item-title text-base font-bold text-white mb-1">Final Presentation & Winners</h3>
+                                    <p class="timeline-item-desc text-slate-400 text-xs leading-relaxed">Present your submission before the jury panel, followed by the awards ceremony.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section (Compact py-12 sm:py-16) -->
+            <section id="how-it-works" class="how-it-works-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
+                        <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Process</span>
+                        <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Competition Process</h2>
+                        <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <div class="steps-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                        <div class="step-card bg-white/[0.02] border border-white/5 hover:border-cyan-400/50 hover:bg-white/[0.04] p-5 rounded-2xl transition-all duration-300 group">
+                            <div class="step-number font-heading text-3xl font-extrabold text-white/5 group-hover:text-cyan-400 transition-colors duration-300 mb-3">01</div>
+                            <h3 class="step-title text-sm font-bold text-white mb-1.5">Register</h3>
+                            <p class="step-desc text-slate-400 text-xs leading-relaxed">Fill out the online application with your details and target SDG goal.</p>
+                        </div>
+                        
+                        <div class="step-card bg-white/[0.02] border border-white/5 hover:border-cyan-400/50 hover:bg-white/[0.04] p-5 rounded-2xl transition-all duration-300 group">
+                            <div class="step-number font-heading text-3xl font-extrabold text-white/5 group-hover:text-cyan-400 transition-colors duration-300 mb-3">02</div>
+                            <h3 class="step-title text-sm font-bold text-white mb-1.5">Upload Entry</h3>
+                            <p class="step-desc text-slate-400 text-xs leading-relaxed">Submit your original photo or video file before August 10, 2026.</p>
+                        </div>
+                        
+                        <div class="step-card bg-white/[0.02] border border-white/5 hover:border-cyan-400/50 hover:bg-white/[0.04] p-5 rounded-2xl transition-all duration-300 group">
+                            <div class="step-number font-heading text-3xl font-extrabold text-white/5 group-hover:text-cyan-400 transition-colors duration-300 mb-3">03</div>
+                            <h3 class="step-title text-sm font-bold text-white mb-1.5">Evaluation</h3>
+                            <p class="step-desc text-slate-400 text-xs leading-relaxed">The expert judging panel evaluates submissions for shortlisting.</p>
+                        </div>
+                        
+                        <div class="step-card bg-white/[0.02] border border-white/5 hover:border-cyan-400/50 hover:bg-white/[0.04] p-5 rounded-2xl transition-all duration-300 group">
+                            <div class="step-number font-heading text-3xl font-extrabold text-white/5 group-hover:text-cyan-400 transition-colors duration-300 mb-3">04</div>
+                            <h3 class="step-title text-sm font-bold text-white mb-1.5">Presentation</h3>
+                            <p class="step-desc text-slate-400 text-xs leading-relaxed">Shortlisted candidates pitch their creative concepts live to the jury.</p>
+                        </div>
+                        
+                        <div class="step-card bg-white/[0.02] border border-white/5 hover:border-cyan-400/50 hover:bg-white/[0.04] p-5 rounded-2xl transition-all duration-300 group">
+                            <div class="step-number font-heading text-3xl font-extrabold text-white/5 group-hover:text-cyan-400 transition-colors duration-300 mb-3">05</div>
+                            <h3 class="step-title text-sm font-bold text-white mb-1.5">Winner Reveal</h3>
+                            <p class="step-desc text-slate-400 text-xs leading-relaxed">Winners are announced and physical prizes distributed at the ceremony.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards Section (Compact py-12 sm:py-16) -->
+            <section id="awards" class="awards-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 bg-slate-950/20">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
+                        <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Awards</span>
+                        <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Awards & Recognition</h2>
+                        <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <!-- Two Clean Core Awards Cards -->
+                    <div class="awards-grid grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 max-w-4xl mx-auto">
+                        <!-- Core Prizes Card -->
+                        <div class="award-card gold-tier relative p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:scale-[1.01] transition-all flex flex-col items-center text-center">
+                            <div class="award-glow"></div>
+                            <div class="award-badge-icon w-14 h-14 rounded-full bg-white/[0.02] border border-white/5 flex items-center justify-center text-2xl mb-4 relative z-10">
+                                <i class="fa-solid fa-trophy text-yellow-500"></i>
+                            </div>
+                            <h3 class="award-title text-lg font-bold text-white mb-3 relative z-10">Medal & Certificate of Merit</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-5 relative z-10">Winners across both Photography and Videography contest categories will be awarded official medals along with Certificates of Merit to recognize their outstanding sustainable visual design work.</p>
+                            <div class="award-perks space-y-2 w-full relative z-10">
+                                <span class="perk-tag block text-xs bg-white/[0.02] border border-white/5 py-2 px-4 rounded-full text-slate-200"><i class="fa-solid fa-award text-yellow-500 mr-2"></i> Official Contest Medals</span>
+                                <span class="perk-tag block text-xs bg-white/[0.02] border border-white/5 py-2 px-4 rounded-full text-slate-200"><i class="fa-solid fa-file-signature text-yellow-500 mr-2"></i> Certificates of Merit for Winners</span>
+                            </div>
+                        </div>
+
+                        <!-- Participation Certificate Card -->
+                        <div class="award-card silver-tier relative p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:scale-[1.01] transition-all flex flex-col items-center text-center">
+                            <div class="award-glow"></div>
+                            <div class="award-badge-icon w-14 h-14 rounded-full bg-white/[0.02] border border-white/5 flex items-center justify-center text-2xl mb-4 relative z-10">
+                                <i class="fa-solid fa-certificate text-cyan-400"></i>
+                            </div>
+                            <h3 class="award-title text-lg font-bold text-white mb-3 relative z-10">Participation Certificate</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-5 relative z-10">All participating students who successfully submit a valid visual project in accordance with the guidelines will receive an official e-Certificate of Participation.</p>
+                            <div class="award-perks space-y-2 w-full relative z-10">
+                                <span class="perk-tag block text-xs bg-white/[0.02] border border-white/5 py-2 px-4 rounded-full text-slate-200"><i class="fa-solid fa-signature text-cyan-400 mr-2"></i> e-Certificate of Participation</span>
+                                <span class="perk-tag block text-xs bg-white/[0.02] border border-white/5 py-2 px-4 rounded-full text-slate-200"><i class="fa-solid fa-share-nodes text-cyan-400 mr-2"></i> Showcase in Academic Portfolio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Benefits Section (Compact py-12 sm:py-16) -->
+            <section id="benefits" class="benefits-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
+                        <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Perks</span>
+                        <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Why Participate?</h2>
+                        <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <div class="benefits-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+                        <div class="benefit-card bg-white/[0.02] border border-white/5 p-5 rounded-xl hover:border-cyan-400/30 hover:bg-white/[0.04] transition-all duration-300">
+                            <i class="fa-solid fa-lightbulb text-cyan-400 text-2xl mb-3 block"></i>
+                            <h3 class="text-sm font-bold text-white mb-1.5">Showcase Creativity</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">Flaunt your capability, aesthetic eye, and storytelling prowess on a high-exposure platform.</p>
+                        </div>
+                        <div class="benefit-card bg-white/[0.02] border border-white/5 p-5 rounded-xl hover:border-cyan-400/30 hover:bg-white/[0.04] transition-all duration-300">
+                            <i class="fa-solid fa-earth-americas text-cyan-400 text-2xl mb-3 block"></i>
+                            <h3 class="text-sm font-bold text-white mb-1.5">Promote SDGs</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">Contribute directly to raising academic awareness for critical global social and environmental goals.</p>
+                        </div>
+                        <div class="benefit-card bg-white/[0.02] border border-white/5 p-5 rounded-xl hover:border-cyan-400/30 hover:bg-white/[0.04] transition-all duration-300">
+                            <i class="fa-solid fa-comments text-cyan-400 text-2xl mb-3 block"></i>
+                            <h3 class="text-sm font-bold text-white mb-1.5">Expert Jury Panel</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">Present your visual concepts directly before professional designers, academic chairs, and domain experts.</p>
+                        </div>
+                        <div class="benefit-card bg-white/[0.02] border border-white/5 p-5 rounded-xl hover:border-cyan-400/30 hover:bg-white/[0.04] transition-all duration-300">
+                            <i class="fa-solid fa-award text-cyan-400 text-2xl mb-3 block"></i>
+                            <h3 class="text-sm font-bold text-white mb-1.5">Win Medals & Certificates</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">Take home custom trophies, medals, and merit designations to strengthen your student CV.</p>
+                        </div>
+                        <div class="benefit-card bg-white/[0.02] border border-white/5 p-5 rounded-xl hover:border-cyan-400/30 hover:bg-white/[0.04] transition-all duration-300">
+                            <i class="fa-solid fa-receipt text-cyan-400 text-2xl mb-3 block"></i>
+                            <h3 class="text-sm font-bold text-white mb-1.5">On-Duty (OD) Allotment</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">Official event attendance credentials and OD slips provided as per standard institutional academic norms.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rules & Eligibility (Compact py-12 sm:py-16) -->
+            <section id="guidelines" class="guidelines-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 bg-slate-950/20">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
+                        <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Rules</span>
+                        <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Guidelines & Eligibility</h2>
+                        <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <div class="guidelines-wrapper-grid grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-5xl mx-auto">
+                        <div class="guidelines-pane lg:col-span-7 bg-white/[0.02] border border-white/5 p-6 sm:p-8 rounded-2xl">
+                            <div class="pane-header flex items-center gap-3 border-b border-white/5 pb-3 mb-4">
+                                <i class="fa-solid fa-circle-info text-cyan-400 text-lg"></i>
+                                <h3 class="text-lg font-bold text-white">Submission Rules</h3>
+                            </div>
+                            <ul class="rules-list space-y-3">
+                                <li class="flex gap-3 items-start">
+                                    <span class="rule-num shrink-0 w-5 h-5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-[11px] font-bold text-cyan-400 flex items-center justify-center mt-0.5">1</span>
+                                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed"><strong class="text-white">Originality:</strong> All entries must be captured/recorded by the participant. Plagiarism will lead to immediate disqualification.</p>
+                                </li>
+                                <li class="flex gap-3 items-start">
+                                    <span class="rule-num shrink-0 w-5 h-5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-[11px] font-bold text-cyan-400 flex items-center justify-center mt-0.5">2</span>
+                                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed"><strong class="text-white">Single SDG Target:</strong> Choose exactly one of the 17 UN Sustainable Development Goals as your project theme.</p>
+                                </li>
+                                <li class="flex gap-3 items-start">
+                                    <span class="rule-num shrink-0 w-5 h-5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-[11px] font-bold text-cyan-400 flex items-center justify-center mt-0.5">3</span>
+                                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed"><strong class="text-white">Strict Deadline:</strong> Submissions must be uploaded before 10 August 2026. Late uploads cannot be accommodated.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="eligibility-pane lg:col-span-5 bg-white/[0.02] border border-white/5 p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
+                            <div>
+                                <div class="pane-header flex items-center gap-3 border-b border-white/5 pb-3 mb-4">
+                                    <i class="fa-solid fa-user-check text-cyan-400 text-lg"></i>
+                                    <h3 class="text-lg font-bold text-white">Eligibility Criteria</h3>
+                                </div>
+                                <div class="eligibility-content space-y-3">
+                                    <div class="eligibility-card flex gap-3 p-4 rounded-xl bg-white/[0.01] border border-white/5">
+                                        <i class="fa-solid fa-user-graduate text-cyan-400 text-xl mt-1"></i>
+                                        <div>
+                                            <h4 class="font-bold text-white text-xs sm:text-sm">Open to Students</h4>
+                                            <p class="text-slate-400 text-xs mt-0.5">Students from any recognized educational school, college, or university are eligible.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Organizing Committee (Compact py-12 sm:py-16) -->
+            <section id="committee" class="committee-section section-padding py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="section-header text-center animate-on-scroll mb-8 sm:mb-10 max-w-3xl mx-auto">
+                        <span class="section-tag font-heading text-xs uppercase tracking-widest text-cyan-400">Team</span>
+                        <h2 class="section-title text-2xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Organizing Committee</h2>
+                        <div class="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <!-- Convenor Card -->
+                    <div class="convenor-wrapper flex justify-center mb-8 animate-on-scroll">
+                        <div class="committee-card convenor-card bg-white/[0.02] border border-white/5 p-5 sm:p-6 rounded-2xl flex flex-col items-center w-full max-w-[340px] text-center hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all group">
+                            <div class="committee-avatar-wrapper w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-2xl text-slate-500 mb-3 overflow-hidden relative transition-all group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] bg-slate-950">
+                                <i class="fa-solid fa-user-tie avatar-shutter transition-all group-hover:rotate-180"></i>
+                            </div>
+                            <span class="member-role text-[9px] uppercase tracking-widest text-cyan-400 font-bold mb-1">Convenor</span>
+                            <h3 class="member-name text-base font-bold text-white mb-1">Dr. A. Anbarasi</h3>
+                            <p class="member-institution text-[11px] text-slate-400 leading-normal mb-2">Assistant Professor, Computing Technologies,<br>SRM Institute of Science and Technology</p>
+                        </div>
+                    </div>
+
+                    <!-- Co-Convenors Grid -->
+                    <div class="coconvenors-grid grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-5xl mx-auto animate-on-scroll">
+                        
+                        <!-- Co-Convenor 1 (with Phone) -->
+                        <div class="committee-card bg-white/[0.02] border border-white/5 p-5 rounded-2xl flex flex-col items-center text-center hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all group">
+                            <div class="committee-avatar-wrapper w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-xl text-slate-500 mb-3 overflow-hidden relative transition-all group-hover:border-cyan-400 bg-slate-950">
+                                <i class="fa-solid fa-user avatar-shutter transition-all group-hover:rotate-180"></i>
+                            </div>
+                            <span class="member-role text-[9px] uppercase tracking-widest text-cyan-400 font-bold mb-1">Co-Convenor</span>
+                            <h3 class="member-name text-sm font-bold text-white mb-1">Dr. N. A. S. Vinoth</h3>
+                            <p class="member-institution text-[10px] text-slate-400 leading-relaxed mb-2.5">Assistant Professor, Computing Technologies,<br>SRM Institute of Science and Technology</p>
+                            <a href="tel:9600788043" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 text-[11px] font-bold hover:bg-cyan-400 hover:text-slate-950 transition-all">
+                                <i class="fa-solid fa-phone text-[9px]"></i>
+                                <span>96007 88043</span>
+                            </a>
+                        </div>
+
+                        <!-- Co-Convenor 2 (with Phone) -->
+                        <div class="committee-card bg-white/[0.02] border border-white/5 p-5 rounded-2xl flex flex-col items-center text-center hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all group">
+                            <div class="committee-avatar-wrapper w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-xl text-slate-500 mb-3 overflow-hidden relative transition-all group-hover:border-cyan-400 bg-slate-950">
+                                <i class="fa-solid fa-user avatar-shutter transition-all group-hover:rotate-180"></i>
+                            </div>
+                            <span class="member-role text-[9px] uppercase tracking-widest text-cyan-400 font-bold mb-1">Co-Convenor</span>
+                            <h3 class="member-name text-sm font-bold text-white mb-1">Dr. Delsi Robinsha S</h3>
+                            <p class="member-institution text-[10px] text-slate-400 leading-relaxed mb-2.5">Assistant Professor, Computing Technologies,<br>SRM Institute of Science and Technology</p>
+                            <a href="tel:9500822023" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 text-[11px] font-bold hover:bg-cyan-400 hover:text-slate-950 transition-all">
+                                <i class="fa-solid fa-phone text-[9px]"></i>
+                                <span>95008 22023</span>
+                            </a>
+                        </div>
+
+                        <!-- Co-Convenor 3 -->
+                        <div class="committee-card bg-white/[0.02] border border-white/5 p-5 rounded-2xl flex flex-col items-center text-center hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all group">
+                            <div class="committee-avatar-wrapper w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-xl text-slate-500 mb-3 overflow-hidden relative transition-all group-hover:border-cyan-400 bg-slate-950">
+                                <i class="fa-solid fa-user avatar-shutter transition-all group-hover:rotate-180"></i>
+                            </div>
+                            <span class="member-role text-[9px] uppercase tracking-widest text-cyan-400 font-bold mb-1">Co-Convenor</span>
+                            <h3 class="member-name text-sm font-bold text-white mb-1">Dr. Chandra Sekaran D. S.</h3>
+                            <p class="member-institution text-[10px] text-slate-400 leading-relaxed">Assistant Professor, Computing Technologies,<br>SRM Institute of Science and Technology</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Call to Action (Compact py-12 sm:py-16) -->
+            <section class="cta-section py-12 sm:py-16 px-6 sm:px-8 border-t border-white/5 text-center relative overflow-hidden bg-gradient-to-b from-darkBg to-slate-950">
+                <div class="cta-glow-bg absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-cyan-500/10 blur-[90px] pointer-events-none"></div>
+                <div class="max-w-[1200px] mx-auto relative z-10">
+                    <h2 class="cta-title animate-on-scroll font-heading text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">Ready to Frame the Future?</h2>
+                    <p class="cta-desc animate-on-scroll text-slate-300 max-w-xl mx-auto mb-6 text-sm leading-relaxed">
+                        Use your lens to inspire change and make a lasting impact through visual storytelling.
+                    </p>
+                    
+                    <div class="cta-dates animate-on-scroll inline-flex flex-col sm:flex-row items-center gap-4 bg-white/[0.01] border border-white/5 py-3 px-8 rounded-2xl mb-8">
+                        <div class="cta-date-badge flex flex-col items-center sm:items-start">
+                            <span class="label text-[9px] uppercase tracking-widest text-slate-500">Submission Closes</span>
+                            <span class="val text-sm font-extrabold text-white mt-0.5">10 August 2026</span>
+                        </div>
+                        <div class="cta-separator hidden sm:block w-px h-6 bg-white/10"></div>
+                        <div class="cta-date-badge flex flex-col items-center sm:items-start">
+                            <span class="label text-[9px] uppercase tracking-widest text-slate-500">Event Date</span>
+                            <span class="val text-sm font-extrabold text-white mt-0.5">12 August 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-actions animate-on-scroll">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczk5gMOsyEphysyXfm6x3WFBnVZ-bRlZw93mQeJrzqx6oToQ/viewform?usp=publish-editor" target="_blank" class="group relative inline-flex items-center gap-2 px-8 py-3.5 font-bold text-slate-950 text-base bg-gradient-to-r from-cyan-400 to-indigo-400 rounded-full overflow-hidden shadow-lg shadow-cyan-400/25 transition-all hover:scale-105 active:scale-95 cursor-pointer text-center">
+                            <span>Register Now</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer (Compact py-8) -->
+        <footer class="footer border-t border-white/5 py-8 bg-slate-950">
+            <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 pb-6">
+                <div class="footer-brand">
+                    <a href="#" class="logo flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-camera-retro logo-icon text-lg text-cyan-400"></i>
+                        <span class="logo-text font-heading font-extrabold text-base text-white">FRAMES<span class="text-cyan-400">360</span></span>
+                    </a>
+                    <p class="footer-quote text-slate-400 text-xs italic leading-relaxed max-w-xs">
+                        "Every frame tells a story. Let yours shape a sustainable future."
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="text-xs uppercase tracking-widest text-white font-bold mb-3">Quick Navigation</h4>
+                    <ul class="space-y-1.5 text-xs text-slate-400">
+                        <li><a href="#about" class="hover:text-cyan-400 hover:pl-1 transition-all">About the Event</a></li>
+                        <li><a href="#theme" class="hover:text-cyan-400 hover:pl-1 transition-all">SDG Themes</a></li>
+                        <li><a href="#timeline" class="hover:text-cyan-400 hover:pl-1 transition-all">Timeline & Stages</a></li>
+                        <li><a href="#awards" class="hover:text-cyan-400 hover:pl-1 transition-all">Prizes & Benefits</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-info space-y-1.5">
+                    <h4 class="text-xs uppercase tracking-widest text-white font-bold mb-3">Contact</h4>
+                    <p class="contact-line text-xs text-slate-400 flex items-center gap-2"><i class="fa-solid fa-phone text-cyan-400"></i> Dr. N. A. S. Vinoth: <a href="tel:9600788043" class="text-white hover:text-cyan-400">96007 88043</a></p>
+                    <p class="contact-line text-xs text-slate-400 flex items-center gap-2"><i class="fa-solid fa-phone text-cyan-400"></i> Dr. Delsi Robinsha S: <a href="tel:9500822023" class="text-white hover:text-cyan-400">95008 22023</a></p>
+                    <p class="contact-line text-xs text-slate-400 flex items-center gap-2 pt-1"><i class="fa-solid fa-location-dot text-cyan-400"></i> Department of Computing Technologies, Tech Park, SRMIST</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom border-t border-white/5 pt-6">
+                <div class="max-w-[1200px] mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+                    <p class="copyright text-slate-500 text-[10px]">&copy; 2026 Department of Computing Technologies, SRMIST. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript Source -->
+    <script src="app.js"></script>
+</body>
+</html>

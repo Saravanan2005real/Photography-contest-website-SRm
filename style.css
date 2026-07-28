@@ -1,0 +1,478 @@
+/* ==========================================================================
+   FRAMES 360 NATIVE CLASS STYLES
+   ========================================================================== */
+
+/* Custom Font Fallback imports */
+:root {
+    --accent-neon: #06b6d4;
+    --accent-purple: #6366f1;
+    --bg-primary: #030712;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #030712;
+}
+::-webkit-scrollbar-thumb {
+    background: #111827;
+    border-radius: 4px;
+    border: 2px solid #030712;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-neon);
+}
+
+/* ==========================================================================
+   CUSTOM CURSOR (VIEWFINDER)
+   ========================================================================== */
+.cursor-viewfinder {
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.2s ease;
+    mix-blend-mode: difference;
+    display: none; /* Displayed via JS on non-touch devices */
+}
+
+.viewfinder-corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: #fff;
+    border-style: solid;
+    transition: all 0.3s ease;
+}
+
+.viewfinder-corner.tl { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+.viewfinder-corner.tr { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+.viewfinder-corner.bl { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
+.viewfinder-corner.br { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+
+.viewfinder-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--accent-neon);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+/* Hover state on active clickable elements */
+body.cursor-active .cursor-viewfinder {
+    width: 64px;
+    height: 64px;
+}
+body.cursor-active .viewfinder-corner {
+    border-color: var(--accent-neon);
+    width: 12px;
+    height: 12px;
+}
+body.cursor-active .viewfinder-dot {
+    background-color: #fff;
+    width: 6px;
+    height: 6px;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================================================== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays */
+.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+
+/* ==========================================================================
+   HERO SCROLL MOUSE
+   ========================================================================== */
+.mouse-icon {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background-color: var(--accent-neon);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollMouse 1.8s infinite;
+}
+
+.scroll-text {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes scrollMouse {
+    0% { top: 6px; opacity: 1; }
+    50% { top: 16px; opacity: 0.3; }
+    100% { top: 6px; opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 15px var(--accent-neon); }
+    100% { transform: scale(0.9); opacity: 0.5; }
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-neon);
+    box-shadow: 0 0 10px var(--accent-neon);
+    animation: pulse 1.5s infinite;
+}
+
+/* ==========================================================================
+   ADVANCED DYNAMIC ANIMATIONS & TRANSITIONS
+   ========================================================================== */
+
+/* Floating Animation for Viewfinder Graphic */
+@keyframes floatVisual {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(1.5deg);
+    }
+}
+
+.hero-viewfinder-float {
+    animation: floatVisual 6s ease-in-out infinite;
+}
+
+/* Shimmer & Gradient Flow on Action Buttons */
+@keyframes buttonGradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-animated-gradient {
+    background-size: 200% 200%;
+    animation: buttonGradientFlow 4s ease infinite;
+}
+
+/* Smooth Card Hover Transformations with Spring Curves */
+.category-card, .step-card, .award-card, .benefit-card, .committee-card {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.4s ease,
+                border-color 0.3s ease,
+                background-color 0.3s ease;
+}
+
+.category-card:hover, .step-card:hover, .award-card:hover, .benefit-card:hover, .committee-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.25);
+}
+
+/* Glass Image Zoom Effect */
+.glass-image-wrapper img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.glass-image-wrapper:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+/* Aperture Shutter Spin for Committee Avatars */
+.committee-avatar-wrapper .avatar-shutter {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
+}
+
+.committee-card:hover .avatar-shutter {
+    transform: rotate(180deg) scale(1.15);
+    color: var(--accent-neon);
+}
+
+/* Glowing Border Pulse */
+@keyframes borderGlowPulse {
+    0%, 100% { border-color: rgba(6, 182, 212, 0.2); }
+    50% { border-color: rgba(99, 102, 241, 0.6); }
+}
+
+.glow-border-pulse {
+    animation: borderGlowPulse 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   ABOUT LENS OVERLAY
+   ========================================================================== */
+.lens-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+.lens-overlay::before, .lens-overlay::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: rgba(255, 255, 255, 0.3);
+    border-style: solid;
+}
+
+.lens-overlay::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.lens-overlay::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+/* ==========================================================================
+   TIMELINE DETAILS
+   ========================================================================== */
+.timeline-item.active .timeline-marker {
+    border-color: var(--accent-neon);
+    color: var(--accent-neon);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.3), 0 0 0 6px #030712;
+}
+
+/* ==========================================================================
+   AWARDS CARDS GOLD GLOWS
+   ========================================================================== */
+.award-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+.gold-tier::before { background: #eab308; }
+.silver-tier::before { background: #cbd5e1; }
+.bronze-tier::before { background: #b45309; }
+
+.award-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(50px);
+    opacity: 0.05;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gold-tier .award-glow { background: #eab308; }
+.silver-tier .award-glow { background: #cbd5e1; }
+.bronze-tier .award-glow { background: #b45309; }
+
+.award-card:hover .award-glow {
+    opacity: 0.15;
+}
+
+/* ==========================================================================
+   HEADER MOBILE & SCROLL STYLES
+   ========================================================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    background: rgba(3, 7, 18, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #94a3b8; /* slate-400 */
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-nav-toggle {
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 120;
+    padding: 8px;
+}
+
+.mobile-nav-toggle .bar {
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Mobile Nav Drawer */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 82%;
+        max-width: 320px;
+        height: 100vh;
+        background: rgba(9, 13, 22, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 90px 30px 40px;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 110;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+    }
+    
+    .nav.open {
+        right: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 18px;
+    }
+    
+    .nav-link {
+        font-size: 16px;
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Toggle active state hamburger */
+    .mobile-nav-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .mobile-nav-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-nav-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -7px);
+    }
+
+    /* Mobile Timeline Layout Alignment */
+    .timeline-line {
+        left: 20px !important;
+        transform: none !important;
+    }
+    .timeline-marker {
+        left: 20px !important;
+        transform: translateX(-50%) !important;
+    }
+    .timeline-content {
+        width: calc(100% - 50px) !important;
+        margin-left: 50px !important;
+        text-align: left !important;
+        justify-self: start !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2.35rem !important;
+        line-height: 1.15 !important;
+    }
+    .hero-description {
+        font-size: 0.95rem !important;
+    }
+    .section-padding {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+    .section-title {
+        font-size: 1.75rem !important;
+    }
+    .hero-info-grid {
+        grid-cols-1 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #countdown {
+        gap: 0.5rem !important;
+    }
+    #countdown span[id] {
+        font-size: 1.5rem !important;
+    }
+}
